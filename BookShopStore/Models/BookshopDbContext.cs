@@ -1,11 +1,11 @@
-﻿using EfCore.Mapping;
+﻿using BookShopStore.Mapping;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EfCore.Models
+namespace BookShopStore.Models
 {
     public class BookshopDbContext : DbContext
     {

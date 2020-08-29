@@ -1,8 +1,8 @@
-﻿using EfCore.Models;
+﻿using BookShopStore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EfCore.Mapping
+namespace BookShopStore.Mapping
 {
     public class OrderStatusMap : IEntityTypeConfiguration<OrderStatus>
     {

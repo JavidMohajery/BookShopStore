@@ -1,6 +1,6 @@
 using System;
 
-namespace EfCore.Models
+namespace BookShopStore.Models
 {
     public class ErrorViewModel
     {
