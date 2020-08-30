@@ -19,16 +19,19 @@ namespace BookShopStore.Models
         public byte[] Image { get; set; }
         public int LanguageId { get; set; }
         public int CategoryId { get; set; }
-
+        public int PublisherId { get; set; }
+        public int TranslatorId { get; set; }
         public Category Category { get; set; }
 
         public Language Language { get; set; }
 
         public Discount Discount { get; set; }
 
+        public Publisher Publisher { get; set; }
         public List<Order_Book> Orders { get; set; }
 
         public List<Author_Book> Author_Books { get; set; }
+        public List<Book_Translator> Book_Translators { get; set; }
     }
     public class Category
     {
@@ -132,5 +135,25 @@ namespace BookShopStore.Models
 
         public Book Book { get; set; }
         public Order Order { get; set; }
+    }
+    public class Publisher
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<Book> Books { get; set; }
+    }
+    public class Translator
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Family { get; set; }
+        public List<Book_Translator> Book_Translators { get; set; }
+    }
+    public class Book_Translator
+    {
+        public int BookId { get; set; }
+        public int TranslatorId { get; set; }
+        public Book Book { get; set; }
+        public Translator Translator { get; set; }
     }
 }

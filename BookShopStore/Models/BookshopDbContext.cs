@@ -29,6 +29,9 @@ namespace BookShopStore.Models
             modelBuilder.ApplyConfiguration(new CityMap());
             modelBuilder.ApplyConfiguration(new OrderMap());
             modelBuilder.ApplyConfiguration(new OrderStatusMap());
+            modelBuilder.ApplyConfiguration(new PublisherMap());
+            modelBuilder.ApplyConfiguration(new TranslatorMap());
+            modelBuilder.ApplyConfiguration(new Book_TranslatorMap());
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Book> Books { get; set; }
@@ -43,5 +46,7 @@ namespace BookShopStore.Models
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
+        public DbSet<Publisher> Publisher { get; set; }
+        public DbSet<Translator> Translators { get; set; }
     }
 }
