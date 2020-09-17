@@ -18,10 +18,15 @@ namespace BookShopStore.Models
 
         public byte[] Image { get; set; }
         public int LanguageId { get; set; }
-        public int CategoryId { get; set; }
         public int PublisherId { get; set; }
         public int TranslatorId { get; set; }
-        public Category Category { get; set; }
+        public int NumOfPages { get; set; }
+        public short Weight { get; set; }
+        public string ISBN { get; set; }
+        public bool IsPublished { get; set; }
+        public DateTime? PublishDate { get; set; }
+        public int PublishYear { get; set; }
+        public bool? Delete { get; set; }
 
         public Language Language { get; set; }
 
@@ -32,6 +37,7 @@ namespace BookShopStore.Models
 
         public List<Author_Book> Author_Books { get; set; }
         public List<Book_Translator> Book_Translators { get; set; }
+        public List<Book_Category> Book_Categories { get; set; }
     }
     public class Category
     {
@@ -40,7 +46,15 @@ namespace BookShopStore.Models
         public int? ParentCategoryId { get; set; }
         public Category ParentCategory { get; set; }
         public List<Category> SubCategories { get; set; }
-        public List<Book> Books { get; set; }
+        public List<Book_Category> Book_Categories { get; set; }
+    }
+    public class Book_Category
+    {
+        public int BookId { get; set; }
+        public int CategoryId { get; set; }
+
+        public Book Book { get; set; }
+        public Category Category { get; set; }
     }
     public class Language
     {

@@ -9,6 +9,7 @@ namespace BookShopStore.Mapping
         public void Configure(EntityTypeBuilder<Language> builder)
         {
             builder.HasKey(c => c.Id);
+            builder.Property(nameof(Language.LanguageName)).IsRequired();
         }
     }
 }

@@ -16,7 +16,6 @@ namespace BookShopStore.Mapping
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Title).IsRequired();
             builder.Property(c => c.Image).HasColumnType("image");
-            builder.HasOne(c => c.Category).WithMany(c => c.Books).HasForeignKey(c => c.CategoryId);
             builder.HasOne(c => c.Language).WithMany(c => c.Books).HasForeignKey(c => c.LanguageId);
             builder.HasOne(c => c.Discount).WithOne(c => c.Book).HasForeignKey<Discount>(c => c.BookId);
             builder.HasOne(c => c.Publisher).WithMany(c => c.Books).HasForeignKey(c => c.PublisherId);
