@@ -1,0 +1,11 @@
+﻿@model IEnumerable<BookShopStore.Models.ViewModels.TreeViewCategory>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <input type="checkbox" /> @item.Name
+                @await Html.PartialAsync("_Subcategories", item.SubCategories)
+        </li>
+    }
+</ul>
