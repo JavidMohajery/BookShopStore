@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Localization;
 
 namespace BookShopStore
 {
@@ -30,7 +31,11 @@ namespace BookShopStore
         {
             services.AddDbContext<BookshopDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<BooksRepository>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(setup =>
+            {
+                setup.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(s => "انتخاب یکی از موارد لیست الزامی است");
+            });
+            services.AddLocalization(option => option.ResourcesPath = "Resources");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

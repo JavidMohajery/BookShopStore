@@ -50,5 +50,6 @@ namespace BookShopStore.Models
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Translator> Translators { get; set; }
         public DbSet<Book_Category> Book_Categories { get; set; }
+        public DbSet<Book_Translator> Book_Translators { get; set; }
     }
 }

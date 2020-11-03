@@ -13,7 +13,16 @@ namespace BookShopStore.Models.Repository
         {
             _dbContext = dbContext;
         }
-        public void BindSubcategories(TreeViewCategory category)
+        public List<TreeViewCategory> GetAllBooksCategory()
+        {
+            var categories = _dbContext.Categories.Where(c => c.ParentCategoryId == null).Select(c => new TreeViewCategory { Id = c.Id, Name = c.CategoryName }).ToList();
+            foreach (var item in categories)
+            {
+                BindSubcategories(item);
+            }
+            return categories;
+        }
+        private void BindSubcategories(TreeViewCategory category)
         {
             var subCategories = _dbContext.Categories.Where(c => c.ParentCategoryId == category.Id).Select(c => new TreeViewCategory { Id = c.Id, Name = c.CategoryName}).ToList();
 
